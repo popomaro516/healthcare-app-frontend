@@ -25,31 +25,12 @@ npm run dev
 - Tailwind CSS
 
 ## ディレクトリ構造
+- `src`ディレクトリには、アプリケーションのソースコードを配置します。
+- `assets`ディレクトリには、画像やフォントなどの静的ファイルを配置します。
+- `public`ディレクトリには、公開される静的ファイルを配置します。
 - `pages`ディレクトリには、アプリケーションの各ページコンポーネントを作成します。
 - `part`ディレクトリには、再利用可能な小さなコンポーネントを作成します。
 
-app/
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package.json
-├── postcss.config.js
-├── public/
-├── README.md
-├── src/
-│   ├── App.css
-│   ├── App.tsx
-│   ├── assets/
-│   ├── index.css
-│   ├── main.tsx
-│   ├── pages/
-│   ├── part/
-│   └── vite-env.d.ts
-├── tailwind.config.js
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-└── vite.config.ts
 
 ## ライセンス
 
