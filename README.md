@@ -1,4 +1,4 @@
-[# healthcare-app-frontend
+# healthcare-app-frontend
 
 このプロジェクトは、大学の授業で開発するヘルスケアアプリのフロントエンド部分です。
 
