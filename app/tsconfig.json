@@ -1,13 +1,12 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
-    "baseUrl": ".",
+    "jsx": "react", // JSXサポート
+    "baseUrl": ".", // ベースURL
     "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+      "@/*": ["src/*"] // パスエイリアス
+    },
+    "esModuleInterop": true, // ESモジュールのインポート互換性
+    // 他のオプションをここに追加
+  },
+  "include": ["src/**/*"] // インクルードするファイル
 }
