@@ -4,7 +4,7 @@ import { TrendingUp, Activity } from "lucide-react";
 
 const Home: React.FC = () => {
   return (
-    <Card className="w-[300px] bg-purple-500 text-white">
+    <Card className="w-full max-w-sm bg-purple-500 text-white sm:w-[300px]">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-sm font-medium">今日のアクティビティ</CardTitle>
         <Activity className="h-4 w-4 text-white" />
