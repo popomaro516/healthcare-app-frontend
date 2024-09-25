@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         <div className="flex items-center pt-1">
           <TrendingUp className="h-4 w-4 text-white mr-1" />
           <span className="text-xs text-white/70">
-             昨日より16%多い
+             昨日より16%多いです
           </span>
         </div>
       </CardContent>
