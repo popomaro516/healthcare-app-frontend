@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  title: 運動予定 API
+  description: 運動予定を提供するAPI
+  version: 1.0.0
+
+paths:
+  /api/v1/exercise:
+    get:
+      summary: 運動予定を取得
+      description: 全ての運動予定を取得します
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExerciseSchedule'
+              examples:
+                exerciseList:
+                  value:
+                    - id: 1
+                      date: "2024-09-28"
+                      exercise: "ジョギング"
+                      duration: 30
+                      caloriesBurned: 300
+                      location: "近所の公園"
+                      completed: false
+                    - id: 2
+                      date: "2024-09-29"
+                      exercise: "筋トレ"
+                      duration: 45
+                      caloriesBurned: 200
+                      location: "自宅"
+                      completed: true
+        '400':
+          description: 不正なリクエスト
+
+components:
+  schemas:
+    ExerciseSchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 運動予定の一意識別子（1からの連番）
+        date:
+          type: string
+          format: date
+          description: 運動予定の日付（YYYY-MM-DD形式）
+        exercise:
+          type: string
+          description: 予定されている運動の種類
+        duration:
+          type: integer
+          description: 運動の予定時間（分）
+        caloriesBurned:
+          type: integer
+          description: 予想消費カロリー
+        location:
+          type: string
+          description: 運動を行う場所
+        completed:
+          type: boolean
+          description: 運動が完了したかどうか
+      required:
+        - id
+        - date
+        - exercise
+        - duration
