@@ -42,18 +42,18 @@ git branch
 git checkout -b 新しいブランチ名
 ```
 - 例えば、新しい機能を追加するために「feature/login-page」というブランチを作成する場合：
-  ```
-  git checkout -b feature/login-page
-  ```
+```
+git checkout -b feature/login-page
+```
 - これで「feature/login-page」ブランチが作成され、そのブランチに自動で切り替わります。
 
 
 ## ポイント
 
 - **ブランチの命名規則**  
-チームでの開発では、一貫性を持たせるためにブランチの命名規則を設定しておくと良いです。例えば：
-- 機能追加：`feature/◯◯`
-- バグ修正：`fix/○○`
+チームでの開発では、一貫性を持たせるためにブランチの命名規則を設定します。例えば：
+- 機能追加：`feature/名前/◯◯`
+- バグ修正：`fix/名前/○○`
 
 
 ## 使用技術
