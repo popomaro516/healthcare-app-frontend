@@ -3,6 +3,7 @@ import apiClient from './apiClient';
 //api通信のラッパー関数
 //運動予定の取得、運動予定の追加、運動予定の削除、運動予定の更新
 interface Exercise {
+    id: number;
     exercise: string;
     date: string;
     time: string;
