@@ -72,6 +72,20 @@ git checkout -b feature/login-page
 - `pages`ディレクトリには、アプリケーションの各ページコンポーネントを作成します。
 - `part`ディレクトリには、再利用可能な小さなコンポーネントを作成します。
 
+## mockサーバー起動方法
+
+以下のコマンドを使用して、mockサーバーを起動します。
+
+```
+prism mock /workspaces/healthcare-app-frontend/app/openapi.yml -p 4010 --cors
+```
+
+- `prism mock`: Prismを使用してmockサーバーを起動します。
+- `/workspaces/healthcare-app-frontend/app/openapi.yml`: OpenAPI仕様ファイルのパスです。
+- `-p 4010`: サーバーをポート4010で起動します。
+- `--cors`: CORSを有効にします。
+
+このコマンドを実行することで、指定したポートでmockサーバーが起動し、APIのエンドポイントをテストすることができます。
 
 ## ライセンス
 
