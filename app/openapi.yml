@@ -7,7 +7,7 @@ info:
 paths:
   /api/v1/exercise:
     get:
-      summary: 運動予定を取得
+      summary: 全ての運動予定を取得
       description: 全ての運動予定を取得します
       responses:
         '200':
@@ -24,19 +24,105 @@ paths:
                     - id: 1
                       date: "2024-09-28"
                       exercise: "ジョギング"
-                      duration: 30
-                      caloriesBurned: 300
-                      location: "近所の公園"
-                      completed: false
+                      time: "07:00"
                     - id: 2
                       date: "2024-09-29"
                       exercise: "筋トレ"
-                      duration: 45
-                      caloriesBurned: 200
-                      location: "自宅"
-                      completed: true
+                      time: "18:00"
         '400':
           description: 不正なリクエスト
+
+    post:
+      summary: 新しい運動予定を作成
+      description: 新しい運動予定を作成します
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExerciseSchedule'
+            examples:
+              newExercise:
+                value:
+                  id: 3
+                  date: "2024-09-30"
+                  exercise: "ヨガ"
+                  time: "06:30"
+      responses:
+        '201':
+          description: 運動予定が作成されました
+        '400':
+          description: 不正なリクエスト
+
+  /api/v1/exercise/{id}:
+    get:
+      summary: 特定の運動予定を取得
+      description: 指定されたIDの運動予定を取得します
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExerciseSchedule'
+              examples:
+                specificExercise:
+                  value:
+                    id: 1
+                    date: "2024-09-28"
+                    exercise: "ジョギング"
+                    time: "07:00"
+        '404':
+          description: 運動予定が見つかりません
+
+    put:
+      summary: 特定の運動予定を更新
+      description: 指定されたIDの運動予定を更新します
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExerciseSchedule'
+            examples:
+              updateExercise:
+                value:
+                  id: 1
+                  date: "2024-09-28"
+                  exercise: "ジョギング"
+                  time: "08:00"
+      responses:
+        '200':
+          description: 運動予定が更新されました
+        '404':
+          description: 運動予定が見つかりません
+
+    delete:
+      summary: 特定の運動予定を削除
+      description: 指定されたIDの運動予定を削除します
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: 運動予定が削除されました
+        '404':
+          description: 運動予定が見つかりません
 
 components:
   schemas:
@@ -53,20 +139,12 @@ components:
         exercise:
           type: string
           description: 予定されている運動の種類
-        duration:
-          type: integer
-          description: 運動の予定時間（分）
-        caloriesBurned:
-          type: integer
-          description: 予想消費カロリー
-        location:
+        time:
           type: string
-          description: 運動を行う場所
-        completed:
-          type: boolean
-          description: 運動が完了したかどうか
+          format: time
+          description: 運動の開始時刻（HH:MM形式）
       required:
         - id
         - date
         - exercise
-        - duration
+        - time
