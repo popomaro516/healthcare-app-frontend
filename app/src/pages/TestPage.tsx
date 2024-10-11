@@ -10,7 +10,6 @@ const TestPage: React.FC = () => {
                 const exercises = await fetchExercises();
                 console.log(exercises);
             }}>Fetch Exercises</button>
-
         </div>
     );
 };

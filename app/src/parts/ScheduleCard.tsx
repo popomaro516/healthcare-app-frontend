@@ -7,15 +7,10 @@ interface ScheduleCardProps {
     title: string
     date: string
     time: string
-    category: string
+    exercise: string
 }
 
-export default function LightGreenScheduleCard({ title, date, time, category }: ScheduleCardProps = {
-    title: "Team Meeting",
-    date: "2024-03-15",
-    time: "14:00",
-    category: "Work"
-}) {
+export default function LightGreenScheduleCard({ title, date, time, exercise }: ScheduleCardProps) {
     return (
         <Card className="w-full max-w-3xl bg-gradient-to-r from-green-50 to-emerald-100 shadow-sm hover:shadow-md transition-shadow duration-300">
             <CardContent className="p-4">
@@ -34,7 +29,7 @@ export default function LightGreenScheduleCard({ title, date, time, category }: 
                         </div>
                     </div>
                     <Badge variant="outline" className="bg-green-200 text-green-700 border-green-300 ml-4">
-                        {category}
+                        {exercise}
                     </Badge>
                 </div>
             </CardContent>

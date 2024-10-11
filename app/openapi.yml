@@ -29,6 +29,10 @@ paths:
                       date: "2024-09-29"
                       exercise: "筋トレ"
                       time: "18:00"
+                    - id: 3
+                      date: "2024-09-30"
+                      exercise: "ヨガ"
+                      time: "06:30"
         '400':
           description: 不正なリクエスト
 
