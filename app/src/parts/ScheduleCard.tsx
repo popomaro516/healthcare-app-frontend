@@ -2,15 +2,9 @@ import React from 'react';
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CalendarIcon, ClockIcon, MapPinIcon } from 'lucide-react'
+import { Schedule } from '@/types/schedulecard'; // インターフェースをインポート
 
-interface ScheduleCardProps {
-    title: string
-    date: string
-    time: string
-    exercise: string
-}
-
-export default function LightGreenScheduleCard({ title, date, time, exercise }: ScheduleCardProps) {
+export default function LightGreenScheduleCard({ title, date, time, exercise }: Schedule) {
     return (
         <Card className="w-full max-w-3xl bg-gradient-to-r from-green-50 to-emerald-100 shadow-sm hover:shadow-md transition-shadow duration-300">
             <CardContent className="p-4">

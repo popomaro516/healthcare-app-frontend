@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CalendarCard from '@/parts/CalendarCard';
 import LightGreenScheduleCard from '@/parts/ScheduleCard';
 import { fetchExercises } from '@/api/exercise';
+import { Schedule } from '@/types/schedulecard'; // インターフェースをインポート
 
 const Home: React.FC = () => {
   const [exercises, setExercises] = useState([]);
