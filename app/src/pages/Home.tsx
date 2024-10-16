@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import CalendarCard from '@/parts/CalendarCard';
 import LightGreenScheduleCard from '@/parts/ScheduleCard';
 import { fetchExercises } from '@/api/exercise';
-import { ScheduleCardProps } from '@/types/schedulecard'; // インターフェースをインポート
+import { Schedule } from '@/types/schedulecard'; // インターフェースをインポート
 
 const Home: React.FC = () => {
-  const [exercises, setExercises] = useState<ScheduleCardProps[]>([]);
+  const [exercises, setExercises] = useState<Schedule[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
