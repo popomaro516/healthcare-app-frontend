@@ -5,7 +5,7 @@ import { fetchExercises } from '@/api/exercise';
 import { Schedule } from '@/types/schedulecard'; // インターフェースをインポート
 
 const Home: React.FC = () => {
-  const [exercises, setExercises] = useState<Schedule[]>([]);
+  const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
         const data = await fetchExercises();
         setExercises(data);
       } catch (error) {
-        console.error("Error fetching exercises:", error);
+        console.error(error);
       }
     };
 
@@ -22,16 +22,20 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <h1>ホームページ</h1>
-      {exercises.map((exercise, index) => (
-        <LightGreenScheduleCard
-          key={index}
-          title={exercise.title}
-          date={exercise.date}
-          time={exercise.time}
-          exercise={exercise.exercise}
-        />
-      ))}
+      <div className='flex'>
+        <CalendarCard />
+        <div className='grid grid-cols-1 gap-1'>
+        {exercises.map((exercise) => (
+          <LightGreenScheduleCard
+            key={exercise.id}
+            title={exercise.exercise}
+            date={exercise.date}
+            time={exercise.time}
+            exercise={exercise.exercise}
+          />
+        ))}
+      </div>
+      </div>
     </div>
   );
 };
