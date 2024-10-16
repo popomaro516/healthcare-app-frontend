@@ -1,15 +1,10 @@
 import apiClient from './apiClient';
+import { ScheduleCardProps } from '@/types/schedulecard'; // インターフェースをインポート
 
 //api通信のラッパー関数
 //運動予定の取得、運動予定の追加、運動予定の削除、運動予定の更新
-interface Exercise {
-    id: number;
-    exercise: string;
-    date: string;
-    time: string;
-}
 
-export const fetchExercises = async () => {
+export const fetchExercises = async (): Promise<ScheduleCardProps[]> => {
     try {
         console.log("Fetching exercises...");
         const res = await apiClient.get("/api/v1/exercise");
@@ -21,7 +16,7 @@ export const fetchExercises = async () => {
     }
 }
 
-export const addExercise = async (exercise: Exercise) => {
+export const addExercise = async (exercise: ScheduleCardProps) => {
     try {
         const res = await apiClient.post("/api/v1/exercise", exercise);
         return res.data;

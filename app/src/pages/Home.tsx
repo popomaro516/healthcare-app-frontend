@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import CalendarCard from '@/parts/CalendarCard';
 import LightGreenScheduleCard from '@/parts/ScheduleCard';
 import { fetchExercises } from '@/api/exercise';
+import { ScheduleCardProps } from '@/types/schedulecard'; // インターフェースをインポート
 
 const Home: React.FC = () => {
-  const [exercises, setExercises] = useState([]);
+  const [exercises, setExercises] = useState<ScheduleCardProps[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,7 +13,7 @@ const Home: React.FC = () => {
         const data = await fetchExercises();
         setExercises(data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching exercises:", error);
       }
     };
 
@@ -21,20 +22,16 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <div className='flex'>
-        <CalendarCard />
-        <div className='grid grid-cols-1 gap-1'>
-        {exercises.map((exercise) => (
-          <LightGreenScheduleCard
-            key={exercise.id}
-            title={exercise.exercise}
-            date={exercise.date}
-            time={exercise.time}
-            exercise={exercise.exercise}
-          />
-        ))}
-      </div>
-      </div>
+      <h1>ホームページ</h1>
+      {exercises.map((exercise, index) => (
+        <LightGreenScheduleCard
+          key={index}
+          title={exercise.title}
+          date={exercise.date}
+          time={exercise.time}
+          exercise={exercise.exercise}
+        />
+      ))}
     </div>
   );
 };

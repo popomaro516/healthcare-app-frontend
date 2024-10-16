@@ -2,13 +2,7 @@ import React from 'react';
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CalendarIcon, ClockIcon, MapPinIcon } from 'lucide-react'
-
-interface ScheduleCardProps {
-    title: string
-    date: string
-    time: string
-    exercise: string
-}
+import { ScheduleCardProps } from '@/types/schedulecard'; // インターフェースをインポート
 
 export default function LightGreenScheduleCard({ title, date, time, exercise }: ScheduleCardProps) {
     return (
